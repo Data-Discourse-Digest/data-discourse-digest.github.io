@@ -29,7 +29,7 @@ plugins:
   - jekyll-include-cache
 
 include:
-  - assets/css/custom.css
+  - css/custom.css
 
 defaults:
   - scope:
