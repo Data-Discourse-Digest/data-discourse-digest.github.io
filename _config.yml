@@ -20,6 +20,9 @@ linkedin_username: "linkedinuser"
 
 theme: "minima"
 
+minima:
+  skin: dark
+
 rss: rss
 
 plugins:
@@ -27,9 +30,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-remote-theme
   - jekyll-include-cache
-
-include:
-  - css/custom.css
 
 defaults:
   - scope:
