@@ -48,5 +48,4 @@ sass:
 
 remote_theme: "minima"
 
-minima: 
-  skin: dark
+skin: dark
