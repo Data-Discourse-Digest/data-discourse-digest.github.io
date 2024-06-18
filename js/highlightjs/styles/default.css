@@ -4,7 +4,7 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 
 */
 
-@import "custom";
+@import "./custom.css";
 
 .hljs {
   display: block;
