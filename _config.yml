@@ -47,3 +47,6 @@ sass:
   style: compressed
 
 remote_theme: "minima"
+
+minima: 
+  skin: dark
