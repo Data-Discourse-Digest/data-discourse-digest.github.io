@@ -3,10 +3,10 @@ author: "Admin"
 description: "Your hub for data insights, analysis, and technology trends." # A more engaging description
 
 # Email / Social media user names used by the minima theme:
-email: "example@mail.com"
-twitter_username: "twitteruser"
-github_username: "githubuser"
-linkedin_username: "linkedinuser"
+email: "data-insights-digest@googlegroups.com"
+# twitter_username: "twitteruser"
+# github_username: "githubuser"
+# linkedin_username: "linkedinuser"
 #facebook_username: username
 #flickr_username: username
 #instagram_username: username
@@ -30,6 +30,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-remote-theme
   - jekyll-include-cache
+  - jekyll-image-size
 
 defaults:
   - scope:
@@ -45,7 +46,5 @@ kramdown:
 
 sass:
   style: compressed
-
-remote_theme: "minima"
 
 skin: dark

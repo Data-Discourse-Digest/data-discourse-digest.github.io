@@ -43,3 +43,19 @@ hr {
   font-size: 2.5em;
   opacity: 0.3;
 }
+
+/* Adjust image styling within paragraphs */
+
+/* Adjust image styling within paragraphs */
+
+.post-content p img {
+  text-align: center; /* Center align content within paragraphs */
+}
+
+.post-content p img {
+  display: block; /* Ensure image behaves like a block element */
+  max-width: 100%; /* Limit image width to its container */
+  width: 100%; /* Ensure image spans the entire width of its container */
+  height: auto; /* Maintain aspect ratio */
+  margin: 0 auto; /* Center image horizontally within paragraph */
+}
