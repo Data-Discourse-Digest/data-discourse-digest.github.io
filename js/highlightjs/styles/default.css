@@ -4,6 +4,8 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 
 */
 
+@import "custom";
+
 .hljs {
   display: block;
   overflow-x: auto;
