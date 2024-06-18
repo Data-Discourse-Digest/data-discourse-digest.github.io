@@ -1,9 +1,8 @@
 title: "Data Discourse Digest"
 author: "Admin"
-description: "Some short description of your blog can go here." # This will show up in places like twitter, linkedin, etc, if you share your sites url as a post.
+description: "Your hub for data insights, analysis, and technology trends." # A more engaging description
 
 # Email / Social media user names used by the minima theme:
-# All of these are optional and can be removed or commented out
 email: "example@mail.com"
 twitter_username: "twitteruser"
 github_username: "githubuser"
@@ -23,22 +22,28 @@ theme: "minima"
 
 rss: rss
 
-kramdown:
-  syntax_highlighter_opts:
-    disable: true
-    
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-remote-theme
+  - jekyll-include-cache
 
-titles_from_headings:
-  strip_title: true
-  collections: true
+include:
+  - assets/css/custom.css
 
 defaults:
   - scope:
       path: ""
       type: post
     values:
-      tags: Other
+      tags: Tech
+
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+
+sass:
+  style: compressed
+
+remote_theme: "minima"
