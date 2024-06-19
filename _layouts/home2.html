@@ -1,0 +1,156 @@
+---
+layout: base2
+---
+
+<style>
+.post-list {
+  list-style-type: none;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-top: 20px;
+  font-size: 12px; /* Adjust font size for the entire list */
+}
+
+.post-list li {
+  padding: 10px; /* Increase padding for list items */
+  border-bottom: 1px solid #ddd;
+  margin-bottom: -1px; /* Remove default margin and maintain border spacing */
+}
+
+.post-list li:last-child {
+  border-bottom: none;
+}
+
+.post-meta {
+  color: #666;
+}
+
+.post-link {
+  color: #333;
+  text-decoration: none;
+  font-size:10px;
+}
+
+.post-link:hover {
+  text-decoration: underline;
+}
+
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 960px; /* Limit maximum width */
+  margin: 0 auto; /* Center align on larger screens */
+}
+
+.mission-vision {
+  width: 30%;
+  border-right: 1px solid #ccc;
+  padding-right: 20px;
+}
+
+.content {
+  width: 65%;
+  padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+  }
+
+  .mission-vision,
+  .content {
+    width: 100%;
+  }
+}
+
+
+</style>
+
+<div class="home">
+  <div class="mission-vision">
+
+    <h2>Profile</h2>
+    <p>I am passionate about the intersection of statistics with real-life applications, driven by a curiosity to
+      unravel patterns and insights hidden within data. Studying in the vibrant area of Los Angeles, I am immersed in a
+      diverse community that inspires my exploration of data-driven innovations and their impact on society.</p>
+
+    {% if page.title %}
+    <h1 class="page-heading">{{ page.title }}</h1>
+    {% endif %}
+
+    {% if site.paginate %}
+    {% assign posts = paginator.posts %}
+    {% else %}
+    {% assign posts = site.posts %}
+    {% endif %}
+
+    {% if posts.size > 0 %}
+    {% if page.list_title %}
+    <h2 class="post-list-heading">{{ page.list_title }}</h2>
+    {% endif %}
+    <ul class="post-list">
+      {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+      {% for post in posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+        {% if site.show_excerpts %}
+        {{ post.excerpt }}
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if site.paginate %}
+    <div class="pager">
+      <ul class="pagination">
+        {% if paginator.previous_page %}
+        <li><a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page
+            }}</a></li>
+        {% else %}
+        <li>
+          <div class="pager-edge">•</div>
+        </li>
+        {% endif %}
+        <li>
+          <div class="current-page">{{ paginator.page }}</div>
+        </li>
+        {% if paginator.next_page %}
+        <li><a href="{{ paginator.next_page_path | relative_url }}" class="next-page">{{ paginator.next_page }}</a></li>
+        {% else %}
+        <li>
+          <div class="pager-edge">•</div>
+        </li>
+        {% endif %}
+      </ul>
+
+    </div>
+    {% endif %}
+
+    <h2>Mission Statement</h2>
+    <p>To empower individuals with the knowledge and understanding of data science through insightful commentary,
+      engaging content, and community-driven discussions.</p>
+
+    <h2>Vision Statement</h2>
+    <p>Our vision is to foster a vibrant platform where data enthusiasts of all backgrounds can explore cutting-edge
+      data science topics, contribute meaningfully to the discourse, and shape the future of data-driven innovations.
+    </p>
+  </div>
+
+  <div class="content">
+
+    {{ content }}
+
+
+  </div>
+
+</div>

@@ -1,3 +1,7 @@
+---
+layout: home2
+---
+
 Welcome to **Data Discourse Digest**, your ultimate destination for navigating the intricate realms of data science with flair and depth. 🌟
 
 ![Data Science](https://www.simplilearn.com/ice9/free_resources_article_thumb/Data-Science-vs.-Big-Data-vs.jpg)

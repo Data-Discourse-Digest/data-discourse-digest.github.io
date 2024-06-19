@@ -1,3 +1,8 @@
+---
+layout: post2
+title: Introduction Blog
+---
+
 Welcome to **Data Discourse Digest**!
 
 I am thrilled to launch this new platform dedicated to exploring and discussing the dynamic world of data science. As data continues to transform our lives and industries, effective communication and insightful analysis have become more important than ever. Here at Data Discourse Digest, my goal is to foster a community where we can enhance our understanding and appreciation of data science through thoughtful commentary and engaging content.

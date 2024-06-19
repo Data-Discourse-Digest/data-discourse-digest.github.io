@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post2
 title: "Critical Analysis Of \"In The Academy, Data Science Is Lonely: Barriers To Adopting Data Science Methods For Scientific Research\""
 ---
 
