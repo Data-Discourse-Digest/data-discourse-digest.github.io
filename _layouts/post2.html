@@ -20,16 +20,6 @@ comments: true
   </header>
 
   <hr>
-
-  <div class="share-links">
-    {% include sharelinks.html %}
-  </div>
-
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
-    {% include navlinks.html %}
-  </div>
-
   {%- if page.comments -%}
   <div id="disqus_thread"></div>
   <script>
@@ -51,6 +41,14 @@ comments: true
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   {%- endif -%}
+  <div class="share-links">
+    {% include sharelinks.html %}
+  </div>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+    {% include navlinks.html %}
+  </div>
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
