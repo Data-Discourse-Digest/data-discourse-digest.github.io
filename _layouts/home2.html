@@ -30,7 +30,7 @@ layout: base2
 .post-link {
   color: #333;
   text-decoration: none;
-  font-size:10px;
+  font-size: 10px;
 }
 
 .post-link:hover {
@@ -67,7 +67,6 @@ layout: base2
   }
 }
 
-
 </style>
 
 <div class="home">
@@ -80,19 +79,13 @@ layout: base2
     <h1 class="page-heading">{{ page.title }}</h1>
     {% endif %}
 
-    {% if site.paginate %}
-    {% assign posts = paginator.posts %}
-    {% else %}
-    {% assign posts = site.posts %}
-    {% endif %}
+    {% assign posts = site.posts | limit:2 %}
 
     {% if posts.size > 0 %}
-    {% if page.list_title %}
-    <h2 class="post-list-heading">{{ page.list_title }}</h2>
-    {% endif %}
+    <h2 class="post-list-heading">Recent Posts</h2>
     <ul class="post-list">
       {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-      {% for post in posts | reverse | limit:2 %}
+      {% for post in posts %}
       <li>
         <span class="post-meta">{{ post.date | date: date_format }}</span>
         <h3>
@@ -112,34 +105,25 @@ layout: base2
     <div class="pager">
       <ul class="pagination">
         {% if paginator.previous_page %}
-        <li><a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page
-            }}</a></li>
+        <li><a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page }}</a></li>
         {% else %}
-        <li>
-          <div class="pager-edge">•</div>
-        </li>
+        <li><span class="pager-edge">•</span></li>
         {% endif %}
-        <li>
-          <div class="current-page">{{ paginator.page }}</div>
-        </li>
+        <li><span class="current-page">{{ paginator.page }}</span></li>
         {% if paginator.next_page %}
         <li><a href="{{ paginator.next_page_path | relative_url }}" class="next-page">{{ paginator.next_page }}</a></li>
         {% else %}
-        <li>
-          <div class="pager-edge">•</div>
-        </li>
+        <li><span class="pager-edge">•</span></li>
         {% endif %}
       </ul>
-
     </div>
     {% endif %}
-
 
     <h2>Mission Statement</h2>
     <p>Glenn Benedict's mission is to empower individuals with the knowledge and understanding of data science through insightful commentary, engaging content, and community-driven discussions. By leveraging his expertise and passion, he aims to make complex statistical concepts accessible and applicable to real-world scenarios.</p>
     <h2>Vision Statement</h2>
     <p>Glenn Benedict envisions creating a vibrant platform where data enthusiasts of all backgrounds can explore cutting-edge data science topics, contribute meaningfully to the discourse, and shape the future of data-driven innovations. This blog aspires to be a hub for learning, inspiration, and collaboration in the data science community.</p>
-    </p>
+
   </div>
 
   <div class="content">
