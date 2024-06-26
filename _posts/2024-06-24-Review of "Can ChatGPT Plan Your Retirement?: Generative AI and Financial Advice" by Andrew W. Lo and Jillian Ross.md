@@ -1,7 +1,6 @@
 ---
 layout: post2
 title: "Review of \"Can ChatGPT Plan Your Retirement?: Generative AI and Financial Advice\" by Andrew W. Lo and Jillian Ross"
-description: "tetsdgsauiavgdsiuv"
 ---
 
 #### Overview of the Research
