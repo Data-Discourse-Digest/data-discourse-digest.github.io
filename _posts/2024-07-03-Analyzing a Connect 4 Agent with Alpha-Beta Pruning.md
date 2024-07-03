@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post2
 title: "Analyzing a Connect 4 Agent with Alpha-Beta Pruning"
 date: 2024-07-02
 categories: [Connect4, AI, AlphaBetaPruning]
