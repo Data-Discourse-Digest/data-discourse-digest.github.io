@@ -2,7 +2,6 @@
 layout: post2
 title: "CrowdStrike Falcon Update Fiasco: What Went Wrong?"
 date: 2024-07-23
-author: Cel
 categories: [tech-analysis]
 ---
 
