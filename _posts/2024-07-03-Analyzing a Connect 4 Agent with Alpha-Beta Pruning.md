@@ -5,7 +5,7 @@ date: 2024-07-03
 categories: [Connect4, AI, AlphaBetaPruning]
 ---
 
-In this post, I will analyze a Python implementation of a Connect 4 agent that uses the alpha-beta pruning algorithm to make optimal moves. The code aims to balance performance and decision quality by evaluating possible future game states.
+In this post, I will analyze a Python implementation of a Connect 4 agent that uses the alpha-beta pruning algorithm to make optimal moves. The code ais to balance performance and decision quality by evaluating possible future game states.
 
 ## Overview
 
