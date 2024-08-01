@@ -55,3 +55,6 @@ sass:
   style: compressed
 
 skin: dark
+
+baseurl: "/"
+domain: "https://data-science-digest.github.io"

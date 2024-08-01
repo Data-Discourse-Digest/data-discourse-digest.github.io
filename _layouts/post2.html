@@ -11,7 +11,7 @@ comments: true
 <meta property="og:url" content="{{ page.url | absolute_url }}" />
 <meta property="og:description" content="{{ page.excerpt | strip_html | escape }}" />
 <meta property="og:image" content="{{ page.image | absolute_url }}" />
-<link rel="canonical" href="https://{{ absolute_url }}" />
+<link rel="canonical" href="{{ page.url | absolute_url }}" />
 
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -28,6 +28,11 @@ comments: true
           itemprop="name">{{ author }}</span></span>
       {%- endif -%}
     </p>
+    <div class="hit-counter">
+      <a href="https://hits.seeyoufarm.com">
+        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url={{ page.url | absolute_url | url_encode }}&title=Hits" alt="Hits">
+      </a>
+    </div>
   </header>
 
   <hr>
@@ -40,6 +45,7 @@ comments: true
     {{ content }}
     {% include navlinks.html %}
   </div>
+
 
   <a class="u-url" href="{{ page.url | absolute_url }}" hidden></a>
 
