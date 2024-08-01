@@ -3,46 +3,78 @@ layout: base2
 ---
 
 <style>
-.post-list {
-  list-style-type: none;
-  padding: 0;
+.post-slider {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
-  margin-top: 20px;
-  font-size: 12px; /* Adjust font size for the entire list */
 }
 
-.post-list li {
-  padding: 10px; /* Increase padding for list items */
-  border-bottom: 1px solid #ddd;
-  margin-bottom: -1px; /* Remove default margin and maintain border spacing */
+.post-slider-inner {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
 }
 
-.post-list li:last-child {
-  border-bottom: none;
+.post-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.post-slide:last-child {
+  border-right: none;
 }
 
 .post-meta {
-  color: #666;
+  color: #f9f9f9;
 }
 
 .post-link {
-  color: #333;
+  color: #fff;
   text-decoration: none;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .post-link:hover {
   text-decoration: underline;
 }
 
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.slider-nav button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.slider-nav button:hover {
+  background-color: #ddd;
+}
+
 .home {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  max-width: 960px; /* Limit maximum width */
-  margin: 0 auto; /* Center align on larger screens */
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .mission-vision {
@@ -68,10 +100,49 @@ layout: base2
 }
 
 </style>
+<style>
+.post-slider {
+  position: relative;
+}
+
+.post-slider-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.post-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  color: #fff;
+  /* Add more styles as needed */
+}
+
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#prev-slide, #next-slide {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#prev-slide:hover, #next-slide:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+</style>
 
 <div class="home">
   <div class="mission-vision">
-
     <h2>Profile</h2>
     <p>Glenn Benedict Montesclaros is currently studying in Los Angeles County and has been immersed in college-level math for the past five years. His passion lies in uncovering the patterns and insights within data, driven by a deep curiosity about the real-world applications of statistics. Through his blog, he aims to share his journey and the profound impact of data-driven innovation on society.</p>
 
@@ -83,39 +154,25 @@ layout: base2
 
     {% if recent_posts.size > 0 %}
     <h2 class="post-list-heading">Recent Posts</h2>
-    <ul class="post-list">
-      {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-      {% for post in recent_posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {% if site.show_excerpts %}
-        {{ post.excerpt }}
-        {% endif %}
-      </li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-
-    {% if site.paginate %}
-    <div class="pager">
-      <ul class="pagination">
-        {% if paginator.previous_page %}
-        <li><a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page }}</a></li>
-        {% else %}
-        <li><span class="pager-edge">•</span></li>
-        {% endif %}
-        <li><span class="current-page">{{ paginator.page }}</span></li>
-        {% if paginator.next_page %}
-        <li><a href="{{ paginator.next_page_path | relative_url }}" class="next-page">{{ paginator.next_page }}</a></li>
-        {% else %}
-        <li><span class="pager-edge">•</span></li>
-        {% endif %}
-      </ul>
+    <div class="post-slider">
+      <div class="post-slider-inner">
+        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+        {% for post in recent_posts %}
+        <div class="post-slide" data-content="{{ post.content | escape }}">
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </h3>
+          <p>{{ post.excerpt }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="slider-nav">
+        <button id="prev-slide">&lt;</button>
+        <button id="next-slide">&gt;</button>
+      </div>
     </div>
     {% endif %}
 
@@ -123,12 +180,69 @@ layout: base2
     <p>Glenn Benedict's mission is to empower individuals with the knowledge and understanding of data science through insightful commentary, engaging content, and community-driven discussions. By leveraging his expertise and passion, he aims to make complex statistical concepts accessible and applicable to real-world scenarios.</p>
     <h2>Vision Statement</h2>
     <p>Glenn Benedict envisions creating a vibrant platform where data enthusiasts of all backgrounds can explore cutting-edge data science topics, contribute meaningfully to the discourse, and shape the future of data-driven innovations. This blog aspires to be a hub for learning, inspiration, and collaboration in the data science community.</p>
-
   </div>
 
   <div class="content">
-
     {{ content }}
-
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.querySelectorAll('.post-slide');
+  const prevBtn = document.getElementById('prev-slide');
+  const nextBtn = document.getElementById('next-slide');
+  const sliderInner = document.querySelector('.post-slider-inner');
+  let currentIndex = 0;
+
+  function extractImageURL(content) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(content, 'text/html');
+    const images = doc.querySelectorAll('img');
+    let imageUrl = '';
+
+    images.forEach(img => {
+      const altText = img.getAttribute('alt') || '';
+      if (altText.toLowerCase().includes('1st')) {
+        imageUrl = img.getAttribute('src');
+      }
+    });
+
+    return imageUrl;
+  }
+
+  function updateSliderPosition() {
+    slides.forEach((slide, index) => {
+      const content = slide.getAttribute('data-content');
+      const imageUrl = extractImageURL(content);
+      if (imageUrl) {
+        slide.style.backgroundImage = `url(${imageUrl})`;
+      } else {
+        slide.style.backgroundImage = 'none';
+      }
+    });
+    sliderInner.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+  }
+
+  // Remove or comment out the logContent function
+  // function logContent() {
+  //   slides.forEach((slide, index) => {
+  //     console.log(`Post ${index + 1} content: `, slide.getAttribute('data-content'));
+  //   });
+  // }
+
+  prevBtn.addEventListener('click', function() {
+    currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+    updateSliderPosition();
+  });
+
+  nextBtn.addEventListener('click', function() {
+    currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+    updateSliderPosition();
+  });
+
+  // Comment out the logContent call
+  // logContent();
+  updateSliderPosition();
+});
+</script>

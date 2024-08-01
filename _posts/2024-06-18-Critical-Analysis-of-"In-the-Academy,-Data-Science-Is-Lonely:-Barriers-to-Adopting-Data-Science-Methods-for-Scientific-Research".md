@@ -7,7 +7,7 @@ title: "Critical Analysis Of \"In The Academy, Data Science Is Lonely: Barriers 
 
 Elle O'Brien and Jordan Mick's study investigates the challenges scientists face in adopting data science methods within their research domains. Conducted at the University of Michigan through qualitative interviews with 25 researchers from diverse fields, the research highlights pervasive issues such as skill gaps, isolation, and the struggle to integrate new techniques effectively.
 
-![](https://t3.ftcdn.net/jpg/05/64/24/12/360_F_564241269_YgngE8lZm0FRjRMh5XaJfv0SFHng2em9.jpg)
+![1st](https://t3.ftcdn.net/jpg/05/64/24/12/360_F_564241269_YgngE8lZm0FRjRMh5XaJfv0SFHng2em9.jpg)
 
 #### Strengths of the Research
 

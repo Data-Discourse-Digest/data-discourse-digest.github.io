@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-
+<!-- or without installing anything -->
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
   {%- include head.html -%}
 
   <body>
+
+    <!-- Search Form -->
+    <form action="/search.html" method="get">
+      <label for="search-box">Search</label>
+      <input type="text" id="search-box" name="query">
+      <input type="submit" value="Search">
+    </form>    
 
     {%- include header.html -%}
 
@@ -14,6 +22,66 @@
     </main>
 
     {%- include footer.html -%}
+
+    <!-- Lunr.js and Search Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+    <script>
+      var index;
+      var store;
+
+      document.addEventListener('DOMContentLoaded', function() {
+        fetch('{{ "/assets/lunr_index.json" | relative_url }}')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Fetched data:', data); // Debug output
+            store = data;
+            index = lunr(function () {
+              this.ref('id');
+              this.field('title');
+              this.field('content');
+
+              store.forEach(function (doc) {
+                this.add(doc);
+              }, this);
+            });
+            console.log('Index initialized:', index); // Debug output
+          })
+          .catch(error => console.error('Error fetching JSON:', error));
+      });
+
+      function searchPosts() {
+        var query = document.getElementById('search-input').value;
+        console.log('Search query:', query); // Debug output
+
+        if (!index) {
+          console.error('Index is not initialized.');
+          return false;
+        }
+
+        var results = index.search(query);
+        var resultsContainer = document.getElementById('search-results');
+        resultsContainer.innerHTML = '';
+
+        if (results.length) {
+          results.forEach(function (result) {
+            var item = store.find(function (doc) {
+              return doc.id === result.ref;
+            });
+            var link = '<a href="' + item.url + '">' + item.title + '</a>';
+            resultsContainer.innerHTML += '<div>' + link + '</div>';
+          });
+        } else {
+          resultsContainer.innerHTML = 'No results found.';
+        }
+
+        return false; // Prevent form submission
+      }
+    </script>
 
   </body>
 

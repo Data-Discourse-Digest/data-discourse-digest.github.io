@@ -7,7 +7,7 @@ title: "Review of \"Can ChatGPT Plan Your Retirement?: Generative AI and Financi
 
 In their paper "Can ChatGPT Plan Your Retirement? Generative AI and Financial Advice," Andrew W. Lo and Jillian Ross explore the potential and challenges of applying large language models (LLMs) like ChatGPT to the domain of financial advice. The paper identifies three major challenges: domain-specific expertise, trustworthiness and ethical adherence, and regulatory compliance. These challenges are relevant across various industries but are explored within the financial sector due to its complexity and regulatory environment. The authors propose a framework for addressing these challenges as part of a broader research agenda to advance generative AI capabilities.
 
-![](https://media.licdn.com/dms/image/D4D12AQH-1dshpGph-g/article-cover_image-shrink_720_1280/0/1689577012098?e=2147483647&v=beta&t=OvHdHvUNIjauuxuf8Xe_1r0fC62wRTvS3kkspcwCsiY)
+![1st](https://media.licdn.com/dms/image/D4D12AQH-1dshpGph-g/article-cover_image-shrink_720_1280/0/1689577012098?e=2147483647&v=beta&t=OvHdHvUNIjauuxuf8Xe_1r0fC62wRTvS3kkspcwCsiY)
 
 #### Strengths of the Research
 

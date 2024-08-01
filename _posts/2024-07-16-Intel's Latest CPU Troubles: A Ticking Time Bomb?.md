@@ -6,7 +6,7 @@ categories: [Tech, CPU]
 tags: [Intel, CPU, Technology, Gaming]
 ---
 
-![Intel CPU](https://i.ebayimg.com/images/g/Ox4AAOSwEYNfBb~s/s-l1600.jpg) <!-- Placeholder for Intel CPU image -->
+![1st Intel CPU](https://i.ebayimg.com/images/g/Ox4AAOSwEYNfBb~s/s-l1600.jpg) <!-- Placeholder for Intel CPU image -->
 
 I've got some bad news if your cutting-edge gaming rig sports an Intel Inside sticker—it might be harboring a ticking time bomb. When it comes to CPU shopping, we often focus on clock speed, core count, and cache size. But there's another spec that deserves our attention: the failure rate. Modern CPUs are engineering marvels, so manufacturing defects are rare. However, if a CPU is unstable, all those impressive specs mean nothing. Intel's 13th and 14th-gen CPUs, known as Raptor Lake, have been plagued by issues that might make you reconsider your next upgrade. Buckle up as we explore Intel's current woes and whether it's time to panic.
 

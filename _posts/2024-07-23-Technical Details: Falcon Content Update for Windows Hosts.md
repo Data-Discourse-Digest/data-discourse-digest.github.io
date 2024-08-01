@@ -9,7 +9,7 @@ categories: [tech-analysis]
 
 On July 19, 2024, at precisely 04:09 UTC, CrowdStrike pushed out a sensor configuration update for Windows systems. This update, meant to fortify the Falcon platform's defenses, instead led to an unexpected disaster—a system crash and blue screen (BSOD) on affected machines.
 
-![*Image placeholder for BSOD or system crash visualization*](https://as2.ftcdn.net/v2/jpg/01/79/66/83/1000_F_179668364_fayJNrqN3Qnt8ZoHfBHU1XwUQihk3mXY.jpg)
+![1st *Image placeholder for BSOD or system crash visualization*](https://as2.ftcdn.net/v2/jpg/01/79/66/83/1000_F_179668364_fayJNrqN3Qnt8ZoHfBHU1XwUQihk3mXY.jpg)
 
 In what seems to be a classic case of "oops," the problematic update was pulled and remediated within an hour. For those trying to spin this as a cyberattack, let’s be clear: it was just a glitch, not a breach.
 
