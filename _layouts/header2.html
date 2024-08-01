@@ -1,0 +1,59 @@
+<header>
+    <div class="flexbox">
+      <div class="center-on-mobiles">
+        <h1>
+          <a href="{{ '/' | relative_url }}" class="logo">
+            <span class="sr-only">Jekyll</span>
+            <img src="{{ 'img/logo-2x.png' | relative_url }}" width="140" height="65" alt="Jekyll Logo">
+          </a>
+        </h1>
+      </div>
+      <nav class="main-nav hide-on-mobiles">
+        {% include primary-nav-items.html -%}
+      </nav>
+      <div class="search hide-on-mobiles">
+        {% include search/input.html -%}
+        <!-- Search Form -->
+        <form action="/search.html" method="get">
+          <label for="search-box" class="sr-only">Search</label>
+          <input type="text" id="search-box" name="query" placeholder="Search">
+          <input type="submit" value="Search">
+        </form>
+      </div>
+      <div class="meta hide-on-mobiles">
+        <ul>
+          <li><a href="{{ site.repository }}/releases/tag/v{{ site.version }}">v{{ site.version }}</a></li>
+          <li><a href="{{ site.repository }}">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <nav class="mobile-nav show-on-mobiles">
+      {% include mobile-nav-items.html -%}
+    </nav>
+  </header>
+  
+<style>
+    .search form {
+  display: flex;
+  align-items: center;
+}
+
+.search input[type="text"] {
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.search input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.search input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+</style>
